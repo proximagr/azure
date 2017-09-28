@@ -1,5 +1,12 @@
-﻿$ContosoStoreKey = (Get-AzureStorageKey -StorageAccountName ppdrazfiles).Primary
-$storageContext=New-AzureStorageContext -StorageAccountName ppdrazfiles -StorageAccountKey $ContosoStoreKey
+﻿.PARAMETER SourceSAKey 
+param
+(
+
+	[Parameter(Mandatory=$true)]
+	[string]$SourceSAKey
+
+)
+$storageContext = New-AzureStorageContext -StorageAccountName ppdrazfiles -StorageAccountKey $SourceSAKey
 $storageContext |  New-AzureStorageShare -Name websites
 $storageContext |  New-AzureStorageShare -Name m2m
 $storageContext |  New-AzureStorageShare -Name certificates
