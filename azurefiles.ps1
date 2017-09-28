@@ -1,5 +1,4 @@
-﻿.PARAMETER SourceSAKey 
-param
+﻿param 
 (
 
 	[Parameter(Mandatory=$true)]
